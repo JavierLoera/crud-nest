@@ -1,4 +1,11 @@
-import { Column, Entity, ManyToMany, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  Column,
+  CreateDateColumn,
+  Entity,
+  JoinTable,
+  ManyToMany,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
 import { User } from './user.entity';
 
 @Entity()
@@ -15,19 +22,19 @@ export class Task {
   @Column()
   hours_to_complete: number;
 
-  @Column({ type: 'datetime' })
+  @CreateDateColumn()
   expiration_date: Date;
 
   @Column()
   status: number;
 
-  @ManyToMany(() => User)
-  @Column()
+  @ManyToMany(() => User, (user) => user.tasks)
+  @JoinTable()
   users: User[];
 
   @Column({ default: 0 })
   cost: number;
 
-  @Column({ type: 'datetime' })
+  @CreateDateColumn()
   createdAt: Date;
 }

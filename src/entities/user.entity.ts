@@ -1,8 +1,17 @@
-import { Column, Entity, PrimaryColumn } from 'typeorm';
+import {
+  BeforeInsert,
+  Column,
+  CreateDateColumn,
+  Entity,
+  ManyToMany,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
+import { Task } from './task.entity';
+import * as bcrypt from 'bcrypt';
 
 @Entity()
 export class User {
-  @PrimaryColumn()
+  @PrimaryGeneratedColumn()
   id: number;
 
   @Column({ length: 50 })
@@ -14,6 +23,25 @@ export class User {
   @Column({ default: 'miembro' })
   role: string;
 
-  @Column({ type: 'datetime' })
+  @CreateDateColumn()
   createdAt: Date;
+
+  @ManyToMany(() => Task, (task) => task.users)
+  tasks: Task[];
+
+  @Column()
+  password: string;
+  @Column({ select: false })
+  sal: string;
+
+  @BeforeInsert()
+  async beforeInsertSal() {
+    this.sal = await bcrypt.genSalt();
+  }
+
+  // antes de guardar hasheamos el password
+  @BeforeInsert()
+  async beforeInsert() {
+    this.password = await bcrypt.hash(this.password, 10);
+  }
 }
