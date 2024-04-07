@@ -1,6 +1,6 @@
 import { BadRequestException, Inject, Injectable } from '@nestjs/common';
 import { User } from 'src/entities/user.entity';
-import { Repository } from 'typeorm';
+import { In, Repository } from 'typeorm';
 import { CreateUserDTO } from './dto/createuser.dto';
 
 @Injectable()
@@ -25,5 +25,9 @@ export class UserService {
     await this.userRepository.save(newUser);
     const { sal, password, ...result } = newUser;
     return result;
+  }
+
+  async getUsers(ids: number[]): Promise<User[]> {
+    return this.userRepository.find({ where: { id: In(ids) } });
   }
 }

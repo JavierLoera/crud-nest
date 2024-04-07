@@ -5,11 +5,8 @@ import {
   IsString,
   MaxLength,
 } from 'class-validator';
+import { UserRole } from '../../enums/roles.enum';
 
-enum UserRole {
-  ADMIN = 'ADMIN',
-  MIEMBRO = 'MIEMBRO',
-}
 export class CreateUserDTO {
   @IsNotEmpty()
   @IsString()
