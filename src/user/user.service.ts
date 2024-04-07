@@ -1,4 +1,10 @@
-import { BadRequestException, Inject, Injectable } from '@nestjs/common';
+import {
+  BadRequestException,
+  HttpException,
+  HttpStatus,
+  Inject,
+  Injectable,
+} from '@nestjs/common';
 import { User } from 'src/entities/user.entity';
 import { In, Repository } from 'typeorm';
 import { CreateUserDTO } from './dto/createuser.dto';
@@ -32,7 +38,7 @@ export class UserService {
   }
 
   async getUsers(name, rol, email): Promise<User[]> {
-    let query = await this.userRepository
+    let query = this.userRepository
       .createQueryBuilder('user')
       .leftJoin('user.tasks', 'task')
       .select([
@@ -52,6 +58,17 @@ export class UserService {
       query.andWhere('user.email = :email', { email });
     }
 
-    return query.getRawMany();
+    let res = await query.getRawMany();
+    if (res.length > 0) {
+      return res;
+    } else {
+      throw new HttpException(
+        {
+          status: HttpStatus.NOT_FOUND,
+          error: 'No encontraron usuarios',
+        },
+        HttpStatus.NOT_FOUND,
+      );
+    }
   }
 }
