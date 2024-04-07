@@ -25,7 +25,7 @@ export class Task {
   @CreateDateColumn()
   expiration_date: Date;
 
-  @Column()
+  @Column({ default: 1 })
   status: number;
 
   @ManyToMany(() => User, (user) => user.tasks)

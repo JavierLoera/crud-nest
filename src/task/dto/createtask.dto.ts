@@ -1,6 +1,6 @@
 import {
   IsArray,
-  IsDate,
+  IsDateString,
   IsNotEmpty,
   IsNumber,
   IsOptional,
@@ -20,7 +20,7 @@ export class createTaskDto {
   @IsNotEmpty()
   hours_to_complete: number;
 
-  @IsDate()
+  @IsDateString()
   @IsNotEmpty()
   expiration_date: Date;
 
