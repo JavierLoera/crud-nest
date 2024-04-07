@@ -27,7 +27,31 @@ export class UserService {
     return result;
   }
 
-  async getUsers(ids: number[]): Promise<User[]> {
+  async getUsersByIds(ids: number[]): Promise<User[]> {
     return this.userRepository.find({ where: { id: In(ids) } });
+  }
+
+  async getUsers(name, rol, email): Promise<User[]> {
+    let query = await this.userRepository
+      .createQueryBuilder('user')
+      .leftJoin('user.tasks', 'task')
+      .select([
+        'user',
+        'SUM(CASE WHEN task.status = 2 THEN task.cost ELSE 0 END) AS total_tasks',
+        'SUM(CASE WHEN task.status = 2 THEN 1 ELSE 0 END) AS completed_tasks',
+      ])
+      .groupBy('user.id');
+
+    if (name) {
+      query.andWhere('user.name like  :name', { name: `%${name}%` });
+    }
+    if (rol) {
+      query.andWhere('lower(user.role) = lower(:rol)', { rol });
+    }
+    if (email) {
+      query.andWhere('user.email = :email', { email });
+    }
+
+    return query.getRawMany();
   }
 }
