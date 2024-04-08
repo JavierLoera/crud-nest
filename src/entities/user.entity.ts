@@ -29,7 +29,7 @@ export class User {
   @ManyToMany(() => Task, (task) => task.users)
   tasks: Task[];
 
-  @Column()
+  @Column({ select: false })
   password: string;
   @Column({ select: false })
   sal: string;

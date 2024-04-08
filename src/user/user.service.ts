@@ -16,7 +16,10 @@ export class UserService {
     private userRepository: Repository<User>,
   ) {}
   async findOne(email: string): Promise<User> {
-    return this.userRepository.findOne({ where: { email } });
+    return this.userRepository.findOne({
+      where: { email },
+      select: ['id', 'email', 'password', 'role', 'name'],
+    });
   }
 
   async createUser(user: CreateUserDTO): Promise<Partial<User> | Error> {
