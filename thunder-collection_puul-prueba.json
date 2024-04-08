@@ -1,0 +1,222 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "puul-prueba",
+    "dateExported": "2024-04-08T01:28:22.445Z",
+    "version": "1.1",
+    "folders": [
+        {
+            "_id": "c93b1a91-9a5e-45f9-9cba-a54be04dcbc6",
+            "name": "auth",
+            "containerId": "",
+            "created": "2024-04-07T08:07:27.834Z",
+            "sortNum": 10000
+        },
+        {
+            "_id": "dcd4f1e0-741d-4b32-a46c-426faef2dd7e",
+            "name": "users",
+            "containerId": "",
+            "created": "2024-04-07T08:07:34.754Z",
+            "sortNum": 20000
+        },
+        {
+            "_id": "91956799-d4a0-4117-92e9-ffe749898149",
+            "name": "tasks",
+            "containerId": "",
+            "created": "2024-04-07T08:07:42.027Z",
+            "sortNum": 30000
+        }
+    ],
+    "requests": [
+        {
+            "_id": "06091894-896f-4b47-8c2e-979320d3e716",
+            "colId": "97bde96a-79c3-413b-9a02-3fb49e6de9e4",
+            "containerId": "dcd4f1e0-741d-4b32-a46c-426faef2dd7e",
+            "name": "createuser",
+            "url": "https://prueba-puul-production.up.railway.app/user/",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2024-04-07T08:08:00.858Z",
+            "modified": "2024-04-08T01:24:48.256Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiQURNSU4iLCJzdWIiOjUsInVzZXJuYW1lIjoiamVzdXNfbG9lcmFfMTVAaG90bWFpbC5jb20iLCJuYW1lIjoiamVzdXMgamF2aWVyIiwiaWF0IjoxNzEyNTM2MjcyLCJleHAiOjE3MTI2MjI2NzJ9.QCkfIrr7axoAORbWgthDr10X2k6xFX9I5xeVdgG6sj8"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\"name\":\"jesus javier\",\n  \"role\":\"MIEMBRO\",\n  \"email\":\"jesus_loera_15@hotmail.com\",\n  \"password\":\"123456\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "066dd099-add7-40e8-a18d-bde745beae01",
+            "colId": "97bde96a-79c3-413b-9a02-3fb49e6de9e4",
+            "containerId": "c93b1a91-9a5e-45f9-9cba-a54be04dcbc6",
+            "name": "login",
+            "url": "https://prueba-puul-production.up.railway.app/auth/sign-in",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2024-04-07T09:48:02.182Z",
+            "modified": "2024-04-08T01:23:44.117Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n   \"email\":\"jesus_loera_15@outlook.com\",\n  \"password\":\"123456\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "fc819ad6-44cd-4203-81c6-0581ab05d693",
+            "colId": "97bde96a-79c3-413b-9a02-3fb49e6de9e4",
+            "containerId": "91956799-d4a0-4117-92e9-ffe749898149",
+            "name": "create",
+            "url": "https://prueba-puul-production.up.railway.app/task",
+            "method": "POST",
+            "sortNum": 40000,
+            "created": "2024-04-07T18:28:05.281Z",
+            "modified": "2024-04-08T01:26:01.162Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiQURNSU4iLCJzdWIiOjEsInVzZXJuYW1lIjoiamVzdXNfbG9lcmFfMTVAaG90bWFpbC5jb20iLCJuYW1lIjoiamVzdXMgamF2aWVyIiwiaWF0IjoxNzEyNTE2ODc3LCJleHAiOjE3MTI2MDMyNzd9.e-IeR6OVsnPO5xlisGCgbLI7yBOZUFWIOtlgh1MszsU"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"title\":\"tarea title test\",\n  \"description\":\"tarea descripcion test\",\n  \"hours_to_complete\":10,\n  \"expiration_date\":\"2024-04-17 09:38:47\",\n  \"cost\":100,\n  \"users\":[1]\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "c91e6d29-df57-4d60-ab0e-2247956feb44",
+            "colId": "97bde96a-79c3-413b-9a02-3fb49e6de9e4",
+            "containerId": "dcd4f1e0-741d-4b32-a46c-426faef2dd7e",
+            "name": "get users",
+            "url": "https://prueba-puul-production.up.railway.app/user",
+            "method": "GET",
+            "sortNum": 50000,
+            "created": "2024-04-07T19:19:18.109Z",
+            "modified": "2024-04-08T01:24:22.699Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "name",
+                    "value": "javier",
+                    "isDisabled": true,
+                    "isPath": false
+                },
+                {
+                    "name": "rol",
+                    "value": "miembro",
+                    "isDisabled": true,
+                    "isPath": false
+                },
+                {
+                    "name": "email",
+                    "value": "jesusjavi112@gmail.com",
+                    "isDisabled": true,
+                    "isPath": false
+                }
+            ],
+            "tests": []
+        },
+        {
+            "_id": "88810f69-254f-473b-becb-44b6e289eea8",
+            "colId": "97bde96a-79c3-413b-9a02-3fb49e6de9e4",
+            "containerId": "91956799-d4a0-4117-92e9-ffe749898149",
+            "name": "getall",
+            "url": "https://prueba-puul-production.up.railway.app/task",
+            "method": "GET",
+            "sortNum": 60000,
+            "created": "2024-04-07T20:09:23.053Z",
+            "modified": "2024-04-08T01:26:15.792Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "fecha_vencimiento",
+                    "value": "17/04/2024",
+                    "isDisabled": true,
+                    "isPath": false
+                },
+                {
+                    "name": "name",
+                    "value": "implementacion de ",
+                    "isDisabled": true,
+                    "isPath": false
+                },
+                {
+                    "name": "user_name",
+                    "value": "Ricardo",
+                    "isDisabled": true,
+                    "isPath": false
+                },
+                {
+                    "name": "email",
+                    "value": "jesus_loera_15@hotmail.com",
+                    "isDisabled": true,
+                    "isPath": false
+                }
+            ],
+            "tests": []
+        },
+        {
+            "_id": "76cad21e-f1ec-4f58-8b97-23d4ef7420a3",
+            "colId": "97bde96a-79c3-413b-9a02-3fb49e6de9e4",
+            "containerId": "91956799-d4a0-4117-92e9-ffe749898149",
+            "name": "delete",
+            "url": "https://prueba-puul-production.up.railway.app/task/3",
+            "method": "DELETE",
+            "sortNum": 70000,
+            "created": "2024-04-07T21:01:23.377Z",
+            "modified": "2024-04-08T01:26:42.118Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiQURNSU4iLCJzdWIiOjEsInVzZXJuYW1lIjoiamVzdXNfbG9lcmFfMTVAaG90bWFpbC5jb20iLCJuYW1lIjoiamVzdXMgamF2aWVyIiwiaWF0IjoxNzEyNTE2ODc3LCJleHAiOjE3MTI2MDMyNzd9.e-IeR6OVsnPO5xlisGCgbLI7yBOZUFWIOtlgh1MszsU"
+                }
+            ],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "c4cf09ee-9276-41ac-aee9-197a24c8d53a",
+            "colId": "97bde96a-79c3-413b-9a02-3fb49e6de9e4",
+            "containerId": "91956799-d4a0-4117-92e9-ffe749898149",
+            "name": "update",
+            "url": "https://prueba-puul-production.up.railway.app/task/1",
+            "method": "PATCH",
+            "sortNum": 80000,
+            "created": "2024-04-07T21:20:38.924Z",
+            "modified": "2024-04-08T01:27:53.116Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"users\":[1],\n  \"title\":\"tarea update test\",\n  \"description\":\"description\",\n  \"hours_to_complete\":50,\n  \"expiration_date\":\"2024-04-07\",\n  \"cost\":2000,\n  \"status\":2\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "7c792b7f-b989-4346-86ef-0e226fc4c1b7",
+            "colId": "97bde96a-79c3-413b-9a02-3fb49e6de9e4",
+            "containerId": "",
+            "name": "estadisticas",
+            "url": "https://prueba-puul-production.up.railway.app/estadisticas",
+            "method": "GET",
+            "sortNum": 90000,
+            "created": "2024-04-07T23:02:10.089Z",
+            "modified": "2024-04-08T01:28:10.354Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        }
+    ]
+}
