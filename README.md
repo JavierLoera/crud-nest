@@ -32,7 +32,7 @@
 $ npm install
 
 ```
-Adjunte archivo de coleccion de endpoints en [archivo de collection](https://github.com/JavierLoera/prueba-puul/blob/master/thunder-collection_puul-prueba.json)
+Adjunte archivo de coleccion de endpoints en [archivo de collection](https://github.com/JavierLoera/prueba-puul/blob/master/thunder-collection_puul-prueba.json)<br>
 la aplicacion esta desplegada [aqui]:(https://prueba-puul-production.up.railway.app/) 
 
 ## Running the app
